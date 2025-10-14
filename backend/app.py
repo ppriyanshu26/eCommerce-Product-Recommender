@@ -10,6 +10,18 @@ load_dotenv(find_dotenv())
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify({
+        "message": "🛍️ AI-Powered E-Commerce Recommender API",
+        "status": "running",
+        "endpoints": {
+            "users": "/users",
+            "recommendations": "/recommendations?user_id=<user_id>",
+            "user_behavior": "/user_behavior?user_id=<user_id>"
+        }
+    })
+
 @app.route('/users', methods=['GET'])
 def users():
     users = get_all_users()
