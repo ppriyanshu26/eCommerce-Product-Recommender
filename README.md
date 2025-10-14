@@ -156,8 +156,8 @@ A modern, intelligent product recommendation system that leverages machine learn
 
 ### **Step 1: Clone the Repository** 📂
 ```bash
-git clone https://github.com/yourusername/ai-ecommerce-recommender.git
-cd ai-ecommerce-recommender
+git clone https://github.com/ppriyanshu26/eCommerce-Product-Recommender.git
+cd eCommerce-Product-Recommender
 ```
 
 ### **Step 2: Backend Setup** 🔧
@@ -261,7 +261,6 @@ npm start
 - ✅ Confirm `retryWrites=true&w=majority` parameters are in the connection string
 
 ```bash
-# Correct format:
 MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/database_name?retryWrites=true&w=majority
 ```
 
@@ -464,8 +463,8 @@ Click the **Fork** button at the top right of this repository to create your own
 ### **Step 2: Clone Your Fork** 📥
 
 ```bash
-git clone https://github.com/your-username/ai-ecommerce-recommender.git
-cd ai-ecommerce-recommender
+git clone https://github.com/your-username/eCommerce-Product-Recommender.git
+cd eCommerce-Product-Recommender
 ```
 
 ---
