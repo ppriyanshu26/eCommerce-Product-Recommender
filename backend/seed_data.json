@@ -1,0 +1,139 @@
+{
+  "users": [
+    {
+      "user_id": "user1",
+      "name": "User A"
+    },
+    {
+      "user_id": "user2",
+      "name": "User B"
+    },
+    {
+      "user_id": "user3",
+      "name": "User C"
+    },
+    {
+      "user_id": "user4",
+      "name": "User D"
+    },
+    {
+      "user_id": "user5",
+      "name": "User E"
+    }
+  ],
+  "product_config": {
+    "adjectives": [
+      "High-Performance",
+      "Sleek",
+      "Durable",
+      "Lightweight",
+      "Ergonomic",
+      "Smart",
+      "Wireless",
+      "Premium",
+      "Eco-Friendly",
+      "Compact",
+      "Professional",
+      "Advanced",
+      "Ultra-Thin",
+      "Portable",
+      "Powerful"
+    ],
+    "product_types": [
+      "Laptop",
+      "Mouse",
+      "Keyboard",
+      "Monitor",
+      "Headphones",
+      "Webcam",
+      "Charger",
+      "Speaker",
+      "Tablet",
+      "Stylus",
+      "Coffee Maker",
+      "Blender",
+      "Toaster",
+      "Book",
+      "T-Shirt",
+      "Yoga Mat",
+      "Smartwatch",
+      "Router",
+      "Desk Lamp",
+      "Phone Case"
+    ],
+    "categories": {
+      "Electronics": [
+        "Laptop",
+        "Mouse",
+        "Keyboard",
+        "Monitor",
+        "Headphones",
+        "Webcam",
+        "Charger",
+        "Speaker",
+        "Tablet",
+        "Stylus",
+        "Smartwatch",
+        "Router"
+      ],
+      "Home Appliances": [
+        "Coffee Maker",
+        "Blender",
+        "Toaster"
+      ],
+      "Books": [
+        "Book"
+      ],
+      "Apparel": [
+        "T-Shirt"
+      ],
+      "Health & Wellness": [
+        "Yoga Mat"
+      ],
+      "Accessories": [
+        "Desk Lamp",
+        "Phone Case"
+      ]
+    },
+    "features": [
+      "long battery life",
+      "fast charging",
+      "high resolution",
+      "ergonomic design",
+      "water-resistant",
+      "noise cancellation",
+      "touch screen",
+      "voice control",
+      "energy efficient",
+      "dual connectivity"
+    ],
+    "num_products": 50
+  },
+  "interaction_config": {
+    "interaction_types": [
+      "viewed",
+      "added_to_cart",
+      "purchased"
+    ],
+    "interaction_weights": [0.6, 0.3, 0.1],
+    "min_interactions_per_user": 5,
+    "max_interactions_per_user": 15
+  },
+  "custom_products": [
+    {
+      "name": "Gaming Laptop Pro",
+      "category": "Electronics",
+      "description": "High-end gaming laptop with RTX 4080 graphics and 32GB RAM. Perfect for gaming and content creation."
+    },
+    {
+      "name": "Organic Coffee Beans",
+      "category": "Food & Beverages",
+      "description": "Premium organic coffee beans sourced from sustainable farms. Rich and aromatic flavor."
+    },
+    {
+      "name": "Wireless Earbuds X",
+      "category": "Electronics",
+      "description": "True wireless earbuds with active noise cancellation and 24-hour battery life."
+    }
+  ]
+}

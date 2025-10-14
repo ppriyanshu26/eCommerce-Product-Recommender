@@ -7,30 +7,46 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
+def load_seed_data():
+    """Loads seed data configuration from JSON file."""
+    json_path = os.path.join(os.path.dirname(__file__), "seed_data.json")
+    try:
+        with open(json_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        print(f"Error: seed_data.json not found at {json_path}")
+        return None
+    except json.JSONDecodeError as e:
+        print(f"Error: Invalid JSON in seed_data.json: {e}")
+        return None
+
 def generate_data():
-    """Generates sample data for users, products, and interactions."""
+    """Generates sample data for users, products, and interactions from JSON config."""
+    
+    seed_config = load_seed_data()
+    if not seed_config:
+        return {"users": [], "products": [], "user_behavior": []}
     
     # --- User Data ---
-    users = [
-        {"user_id": "user1", "name": "Alice"},
-        {"user_id": "user2", "name": "Bob"},
-        {"user_id": "user3", "name": "Charlie"}
-    ]
+    users = seed_config.get("users", [])
 
     # --- Product Data ---
-    adjectives = ["High-Performance", "Sleek", "Durable", "Lightweight", "Ergonomic", "Smart", "Wireless", "Premium", "Eco-Friendly", "Compact"]
-    product_types = ["Laptop", "Mouse", "Keyboard", "Monitor", "Headphones", "Webcam", "Charger", "Speaker", "Tablet", "Stylus", "Coffee Maker", "Blender", "Toaster", "Book", "T-Shirt", "Yoga Mat"]
-    categories = {
-        "Electronics": ["Laptop", "Mouse", "Keyboard", "Monitor", "Headphones", "Webcam", "Charger", "Speaker", "Tablet", "Stylus"],
-        "Home Appliances": ["Coffee Maker", "Blender", "Toaster"],
-        "Books": ["Book"],
-        "Apparel": ["T-Shirt"],
-        "Health & Wellness": ["Yoga Mat"]
-    }
-
-    products = []
-    product_names = set()
-    for i in range(50):
+    product_config = seed_config.get("product_config", {})
+    adjectives = product_config.get("adjectives", [])
+    product_types = product_config.get("product_types", [])
+    categories = product_config.get("categories", {})
+    features = product_config.get("features", [])
+    num_products = product_config.get("num_products", 50)
+    
+    # Start with custom products if any
+    products = seed_config.get("custom_products", []).copy()
+    product_names = {p["name"] for p in products}
+    
+    # Generate additional products
+    for i in range(num_products - len(products)):
+        if not adjectives or not product_types:
+            break
+            
         adj = random.choice(adjectives)
         ptype = random.choice(product_types)
         name = f"{adj} {ptype}"
@@ -46,20 +62,29 @@ def generate_data():
                 category = cat
                 break
         
+        feature = random.choice(features) if features else "premium quality"
         products.append({
             "name": name,
             "category": category,
-            "description": f"A top-quality {name} for all your needs. Features include {random.choice(['long battery life', 'fast charging', 'high resolution', 'ergonomic design'])}."
+            "description": f"A top-quality {name} for all your needs. Features include {feature}."
         })
 
     # --- User Behavior Data ---
-    interactions = ["viewed", "added_to_cart", "purchased"]
+    interaction_config = seed_config.get("interaction_config", {})
+    interaction_types = interaction_config.get("interaction_types", ["viewed", "added_to_cart", "purchased"])
+    interaction_weights = interaction_config.get("interaction_weights", [0.6, 0.3, 0.1])
+    min_interactions = interaction_config.get("min_interactions_per_user", 5)
+    max_interactions = interaction_config.get("max_interactions_per_user", 15)
+    
     user_behavior = []
     for user in users:
-        # Each user interacts with 5 to 15 products
-        for _ in range(random.randint(5, 15)):
+        # Each user interacts with a random number of products
+        num_interactions = random.randint(min_interactions, max_interactions)
+        for _ in range(num_interactions):
+            if not products:
+                break
             product = random.choice(products)
-            interaction = random.choices(interactions, weights=[0.6, 0.3, 0.1], k=1)[0]
+            interaction = random.choices(interaction_types, weights=interaction_weights, k=1)[0]
             
             # Find the product's placeholder ID for the behavior record
             product_name = product["name"]
