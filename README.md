@@ -7,13 +7,25 @@ A modern, intelligent product recommendation system that leverages machine learn
 - 🎯 **Personalized Recommendations** - ML-powered product suggestions based on individual user behavior
 - 🤖 **AI-Generated Explanations** - Natural language insights explaining why products are recommended
 - 📊 **Behavioral Tracking** - Real-time monitoring of user interactions (views, cart additions, purchases)
-- ⚡ **Smart Ranking Algorithm** - Weighted scoring system (viewed: 1x, cart: 2x, purchased: 3x)
+- ⚡ **Smart Ranking Algorithm** - Weighted scoring system (viewed: 3x, cart: 2x, purchased: 1x)
 - 🔍 **Content-Based Filtering** - TF-IDF vectorization for intelligent product similarity matching
 - 💬 **Contextual Understanding** - GPT-4 integration for human-friendly recommendation narratives
 - 🎨 **Modern UI/UX** - Clean, responsive design with glassmorphism effects
 - 📱 **RESTful API** - Well-structured endpoints for seamless frontend-backend communication
 - 🔐 **Secure Configuration** - Environment-based secrets management
 - 🗄️ **Scalable Database** - MongoDB Atlas for flexible, cloud-based data storage
+
+## 🎥 Live Demo
+
+<div align="center">
+
+https://github.com/user-attachments/assets/8d773aca-28f6-49d5-80fe-f09fe28628b7
+
+*Complete demo showcasing personalized recommendations, AI-powered insights, and multi-user interactions*
+
+</div>
+
+---
 
 ## 🚀 Tech Stack
 
@@ -91,7 +103,7 @@ A modern, intelligent product recommendation system that leverages machine learn
                               │
                               ▼
               Apply Behavioral Weights
-              (viewed: 1x, cart: 2x, purchased: 3x)
+              (viewed: 31x, cart: 2x, purchased: 1x)
                               │
                               ▼
               Generate Top N Recommendations
@@ -141,7 +153,7 @@ A modern, intelligent product recommendation system that leverages machine learn
 4. **Database Storage** 💾 - User behavior is stored in MongoDB for future analysis
 5. **Data Retrieval** 🔍 - Backend queries user history and product catalog from MongoDB
 6. **ML Processing** 🤖 - TF-IDF vectorization and cosine similarity calculate product similarities
-7. **Weighted Ranking** ⚖️ - Behaviors are weighted (view < cart < purchase) for better recommendations
+7. **Weighted Ranking** ⚖️ - Behaviors are weighted (view > cart > purchase) for better recommendations
 8. **AI Enhancement** ✨ - Top recommendations sent to OpenAI GPT-4 for contextual explanations
 9. **Response Formation** 📦 - Combined product data + AI insights packaged as JSON
 10. **Frontend Display** 🎨 - React renders personalized recommendations with explanations
